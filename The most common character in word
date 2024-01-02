@@ -1,0 +1,16 @@
+def most_common_character(x):
+    xCount = 0
+    xValue = ""
+    for i in x:
+        if x.count(i) > xCount:
+            xCount = x.count(i)
+            xValue = i
+    return xValue
+
+
+if __name__ == "__main__":
+    first_string = "abcdbde"
+    print(most_common_character(first_string))
+
+    second_string = "exemplaryelementary"
+    print(most_common_character(second_string))
