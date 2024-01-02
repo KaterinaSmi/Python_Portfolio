@@ -1,0 +1,14 @@
+def histogram(word):
+    a={}
+    for i in word:
+        if i not in a:
+            a[i] = "*"
+        else:
+            a[i] += "*"
+    for key, value in a.items():
+        print(key, value)
+       
+
+
+if __name__=="__main__":
+    histogram("abba")
