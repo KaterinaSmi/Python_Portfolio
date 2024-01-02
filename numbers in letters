@@ -1,0 +1,25 @@
+def dict_of_numbers():
+    number = {0: 'zero', 1: 'one', 2: 'two', 3: 'three', 4: 'four', 5: 'five', 6: 'six', 7: 'seven', 8: 'eight', 9: 'nine'}
+    afterones = {10:"Ten",11:"Eleven",12:"Twelve",13:"Thirteen",14:"Fourteen",15:"Fifteen",16:"Sixteen", 17:"Seventeen",18:"Eighteen",19:"Nineteen"}
+    tens = {2:"Twenty",3:"Thirty",4:"Forty",5:"Fifty",6:"Sixty", 7:"Seventy",8:"Eighty",9:"Ninety"}
+    x = dict()
+    for key in range(100):
+        if key<10:
+            x[key]=number[key]
+        elif key<20:
+            x[key]=afterones[key].lower()
+        else:
+            if key % 10 == 0:
+                x[key]=tens[key//10].lower()
+            else:
+                x[key]=tens[key//10].lower()+"-"+number[key%10]
+    return x
+
+
+if __name__=="__main__":
+    numbers = dict_of_numbers()
+    print(numbers[2])
+    print(numbers[11])
+    print(numbers[45])
+    print(numbers[99])
+    print(numbers[0])
