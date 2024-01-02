@@ -1,0 +1,16 @@
+def all_the_longest(x):
+    best=len(x[0])
+    for i in x:
+        if len(i) > best:
+            best = len(i)
+    return_list = []
+    for i in x:
+        if len(i)==best:
+            return_list.append(i)
+    return return_list
+
+if __name__ == "__main__":
+    my_list = ["adele", "mark", "dorothy", "tim", "hedy", "richard"]
+
+    result = all_the_longest(my_list)
+    print(result)
