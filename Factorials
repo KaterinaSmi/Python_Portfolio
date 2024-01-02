@@ -1,0 +1,14 @@
+def factorials(n: int):
+    a=dict()
+    f = 1
+    for i in range(n):
+        f *= i+1
+        a[i+1] = f
+    return a
+
+
+if __name__=="__main__":
+    k = factorials(5)
+    print(k[1])
+    print(k[3])
+    print(k[5])
