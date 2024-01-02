@@ -1,0 +1,20 @@
+command=int(input("command (1 search, 2 add, 3 quit):" ))
+a=dict()
+while command != 3:
+    if command==1:
+        name=input("name:")
+        if name not in a:
+            print("no number")
+        else:
+            for number in a[name]:
+                print(number)
+    elif command==2:
+        name=input("name:")
+        number=input("number:")
+        if name not in a:
+            a[name]=[number]
+        elif name in a:
+            a[name].append(number)   
+        print("ok!")
+    command=int(input("command (1 search, 2 add, 3 quit):" ))
+print("quitting...")
