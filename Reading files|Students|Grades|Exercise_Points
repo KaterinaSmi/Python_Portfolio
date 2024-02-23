@@ -1,0 +1,61 @@
+#file1=input("Student information:")
+#file2=input("Exercises completed: ")
+#file3=input("Exam points:")
+
+students={}
+with open("students1.csv") as new_file:
+    for line in new_file:
+        if "id" in line:
+            continue
+        parts = line.split(';')
+        students[int(parts[0])] = {"name": parts[1], "lastname":parts[2].strip(), "exercises": 0, "exam_points": 0}
+
+with open("exercises1.csv") as new_file:
+    for line in new_file:
+        if "id" in line:
+            continue
+        parts = line.split(';')
+        parts1= parts[1:]
+        countSum=0
+        for part in parts1:
+            countSum+=int(part)
+        students[int(parts[0])]["exercises"]=countSum
+
+with open("exam_points1.csv") as new_file:
+     for line in new_file:
+        if "id" in line:
+            continue
+        parts = line.split(';')
+        parts1= parts[1:]
+        countSum=0
+        for part in parts1:
+            countSum+=int(part)
+        students[int(parts[0])]["exam_points"]=countSum
+
+  
+print(f'{"name":30} {"exec_nbr":10} {"exec_pts.":10} {"exm_pts.":10} {"tot_pts.":10} {"grade":10}')
+for k in students:
+    name_lastname = students[k]["name"]+" "+students[k]["lastname"]
+    exec_nbr=students[k]["exercises"]
+    exec_pts=students[k]["exercises"]//4
+    exm_pts=students[k]["exam_points"]
+    tot_pts=students[k]["exam_points"]+students[k]["exercises"]//4
+
+    ex_ex = students[k]["exercises"]//4 + students[k]["exam_points"]
+    if ex_ex <= 14:
+        grade = 0
+    elif ex_ex <= 17:
+        grade=1
+    elif ex_ex <= 20:
+        grade=2
+    elif ex_ex <= 23:
+        grade=3
+    elif ex_ex <= 27:
+        grade=4
+    elif ex_ex >=28:
+        grade=5
+    
+
+    #print(students[k]["name"]+" "+students[k]["lastname"]+" "+str(grade))
+    print(f'{name_lastname:30} {exec_nbr:<10} {exec_pts:<10} {exm_pts:<10} {tot_pts:<10} {grade:<10}')
+
