@@ -1,0 +1,15 @@
+text=input("Write text:")
+list_slovar = []
+with open('wordlist.txt') as new_file:
+    for i in new_file:
+        list_slovar.append(i[:-1])
+    
+user_text=text.split()
+corrected_text=""
+for word in user_text:
+    if word.lower() not in list_slovar:
+        corrected_text += f" *{word}*"
+    else:
+        corrected_text += f" {word}"
+
+print(corrected_text[1:])
