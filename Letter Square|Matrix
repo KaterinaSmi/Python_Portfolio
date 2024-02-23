@@ -1,0 +1,33 @@
+layers=int(input("Layers: "))
+alphabet={1:"A", 2:"B", 3:"C", 4:"D", 5:"E", 6:"F",7:"G", 8:"H",9:"I", 10:"J",11:"K",12:"L",13:"M", 14:"N",15:"O",16:"P",17:"Q",18:"R",19:"S",20:"T",21:"U",22:"V",23:"W",24:"X",25:"Y",26:"Z"}
+l_to_r = {1: 1}
+for i in range(2,layers+1):
+    l_to_r[i] = list(l_to_r.values())[-1]+2
+razm_m = list(l_to_r.values())[-1]
+
+matrix=[]
+for i in range(razm_m):
+    matrix.append([])
+    for j in range(razm_m):
+        matrix[-1].append(0)
+  
+
+
+big_count=razm_m
+ind_up_left=0
+ind_down_right=razm_m-1
+
+for i in range(layers):
+    bukva = alphabet[layers-i]
+    for big in range(big_count):
+        matrix[ind_up_left][big+i] = bukva
+        matrix[ind_down_right][big+i] = bukva
+        matrix[big+i][ind_up_left] = bukva
+        matrix[big+i][ind_down_right] = bukva
+    big_count -= 2
+    ind_up_left += 1
+    ind_down_right -=1
+    
+
+for i in matrix:
+    print("".join(i))
