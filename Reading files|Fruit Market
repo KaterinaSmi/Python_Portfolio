@@ -1,0 +1,12 @@
+def read_fruits():
+    market={}
+    with open("fruits.csv") as new_file:
+        for line in new_file:
+            line=line[:-1].split(";")
+            fruit=line[0]
+            price=float(line[1])
+            market[fruit]=price
+    return market
+
+if __name__=="__main__":
+    print(read_fruits())
